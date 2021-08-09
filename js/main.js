@@ -5,17 +5,14 @@ const addBook = (ev) => {
 
     const title = document.querySelector('#title').value;
     const author = document.querySelector('#author').value;
-    
+
     const bookData = {
-        title,
-        author,
-    };
+        title: title,
+        author: author,
+    }
 
-    const stringifiedBooks = JSON.stringify(bookData);
-    books.push(stringifiedBooks);
-
-    let bookList = JSON.stringify(books);
-    localStorage.setItem('Books', bookList);
+    books.push(bookData);
+    localStorage.setItem('Books', JSON.stringify(books));
 }
 
 const submitButton = document.querySelector('#button');
