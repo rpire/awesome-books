@@ -10,7 +10,7 @@ let books = [
   },
 ];
 
-function genHTML() {
+const genHTML = () => {
   const htmlString = `
     <article class="book-card">
         <p class="book-title">Lorem ipsum dolor sit amet.</p>
@@ -41,7 +41,7 @@ window.onload = () => {
   }
 };
 
-function addBook() {
+const addBook = () => {
   const title = document.querySelector('#title').value;
   const author = document.querySelector('#author').value;
 
