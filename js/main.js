@@ -1,18 +1,60 @@
-let books = [];
+let books = [
+    {
+        title: 'Lorem ipsum dolor',
+        author: 'Lorem ipsum',
+    },
+    {
+        title: 'Another book',
+        author: 'Another Author',
+    },
+];
 
-const addBook = (ev) => {
-    ev.preventDefault();
+function genHTML() {
+    const htmlString = `
+    <article class="book-card">
+        <p class="book-title">Lorem ipsum dolor sit amet.</p>
+        <p class="book-author">Lorem, ipsum.</p>
+        <button class="book-btn">Remove</button>
+        <hr>
+    </article>
+    `
+    for (let i = 0; i < books.length; i += 1) {
+        document.getElementById('book-shelf').innerHTML += htmlString;
+        const title = document.querySelectorAll('.book-title');
+        const author = document.querySelectorAll('.book-author');
+        title[i].innerHTML = books[i].title;
+        author[i].innerHTML = books[i].author;
+    }
+}
 
+window.onload = () => {
+    if (localStorage.getItem('Books')) {
+        const oldStorage = localStorage.getItem('Books');
+        const newStorage = JSON.parse(oldStorage);
+        books = newStorage;
+        genHTML();
+    } else {
+        genHTML();
+    }
+}
+
+function addBook() {
     const title = document.querySelector('#title').value;
     const author = document.querySelector('#author').value;
 
     const bookData = {
-        title: title,
-        author: author,
-    }
+        title,
+        author,
+    };
 
     books.push(bookData);
-    localStorage.setItem('Books', JSON.stringify(books));
+
+    let bookList = JSON.stringify(books);
+    localStorage.setItem('Books', bookList);
+}
+
+function removeBook() {
+    
 }
 
 const submitButton = document.querySelector('#button');
