@@ -22,8 +22,10 @@ function genHTML() {
         document.getElementById('book-shelf').innerHTML += htmlString;
         const title = document.querySelectorAll('.book-title');
         const author = document.querySelectorAll('.book-author');
+        const button = document.querySelectorAll('.book-btn');
         title[i].innerHTML = books[i].title;
         author[i].innerHTML = books[i].author;
+        button[i].setAttribute('onclick', `removeBook(${i})`);
     }
 }
 
@@ -43,8 +45,8 @@ function addBook() {
     const author = document.querySelector('#author').value;
 
     const bookData = {
-        title,
-        author,
+        title: title,
+        author: author,
     };
 
     books.push(bookData);
@@ -53,8 +55,11 @@ function addBook() {
     localStorage.setItem('Books', bookList);
 }
 
-function removeBook() {
-    
+function removeBook(num) {
+    books.splice(num, 1)
+    let bookList = JSON.stringify(books);
+    localStorage.setItem('Books', bookList);
+    location.reload();
 }
 
 const submitButton = document.querySelector('#button');
