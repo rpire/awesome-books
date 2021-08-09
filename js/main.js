@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 let books = [
   {
     title: 'Lorem ipsum dolor',
@@ -60,7 +61,7 @@ const removeBook = (num) => {
   const bookList = JSON.stringify(books);
   localStorage.setItem('Books', bookList);
   window.location.reload();
-}
+};
 
 const submitButton = document.querySelector('#button');
 submitButton.addEventListener('click', addBook);
