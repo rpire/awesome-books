@@ -28,7 +28,7 @@ const genHTML = () => {
     author[i].innerHTML = books[i].author;
     button[i].setAttribute('onclick', `removeBook(${i})`);
   }
-}
+};
 
 window.onload = () => {
   if (localStorage.getItem('Books')) {
@@ -54,7 +54,7 @@ const addBook = () => {
 
   const bookList = JSON.stringify(books);
   localStorage.setItem('Books', bookList);
-}
+};
 
 const removeBook = (num) => {
   books.splice(num, 1);
