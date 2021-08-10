@@ -8,21 +8,27 @@
     <script defer src="js/main.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Awesome Books</title>
 </head>
 
 <body>
-    <h1 class="text-center">All Awesome Books</h1>
-    <table class="border-left mt-5 mx-auto border-right table table-striped" style="width: 90%">
+    <h1 class="text-center pt-4">All awesome books</h1>
+    <table id="table" class="border mt-5 mx-auto table table-striped">
         <tbody id="book-shelf">
         </tbody>
     </table>
-    <form class="text-center m-4 form">
-        <input id="title" type="text" placeholder="Book Title">
+    <hr class="mt-5">
+    <form class="text-center mx-auto mt-5 form">
+        <h2 class="mb-4">Add a new book</h2>
+        <input class="col-4" id="title" type="text" placeholder="Book Title">
         <br><br>
-        <input id="author" type="text" placeholder="Author's Name">
+        <input class="col-4" id="author" type="text" placeholder="Author's Name">
         <br><br>
-        <button class="btn border col-2" id="button" type="submit">Add</button>
+        <div class="col-4 mx-auto">
+            <button class="btn border-secondary border-2 col-3 float-end" id="button" type="submit">Add</button>
+        </div>
+        
     </form>
 </body>
 
