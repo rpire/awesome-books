@@ -14,20 +14,23 @@ class BookShelf {
 
   genHTML() {
     const htmlString = `
-      <article class="book-card">
-          <p class="book-title"></p>
-          <p class="book-author"></p>
-          <button class="book-btn">Remove</button>
-          <hr>
-      </article>
+      <tr>
+        <td>
+          <article class="ms-3 row book-card">
+            <p class="book-title col-4"></p>
+            <p class="book-author col-4"></p>
+            <button class="book-btn col-3 border-secondary border-2 btn">Remove</button>
+          </article>
+        </td>
+      </tr>
       `;
     for (let i = 0; i < this.books.length; i += 1) {
       document.getElementById('book-shelf').innerHTML += htmlString;
       const title = document.querySelectorAll('.book-title');
       const author = document.querySelectorAll('.book-author');
       const button = document.querySelectorAll('.book-btn');
-      title[i].innerHTML = this.books[i].title;
-      author[i].innerHTML = this.books[i].author;
+      title[i].innerHTML = `"${this.books[i].title}"`;
+      author[i].innerHTML = `by ${this.books[i].author}`;
       button[i].setAttribute('onclick', `bookShelf.removeBook(${i})`);
     }
   }
