@@ -6,3 +6,15 @@ hr {
   width: 40%;
   margin: auto;
 }
+
+.invisible {
+  display: none;
+}
+
+nav li {
+  cursor: pointer;
+}
+
+nav li:hover {
+  color: gray;
+}
