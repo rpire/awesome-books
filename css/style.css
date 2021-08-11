@@ -10,3 +10,11 @@ hr {
 .invisible {
   display: none;
 }
+
+nav li {
+  cursor: pointer;
+}
+
+nav li:hover {
+  color: gray;
+}

@@ -26,6 +26,8 @@ window.onload = () => {
     case 'contact':
       toggleContact();
       break;
+    default:
+      toggleList();
   }
 };
 
