@@ -16,7 +16,7 @@ if (localStorage.getItem('visibility')) {
 }
 
 window.onload = () => {
-  switch(visibility) {
+  switch (visibility) {
     case 'list':
       toggleList();
       break;
@@ -27,8 +27,7 @@ window.onload = () => {
       toggleContact();
       break;
   }
-}
-
+};
 
 toggleList = () => {
   if (list.classList.contains('invisible')) {
@@ -38,7 +37,7 @@ toggleList = () => {
   }
   visibility = 'list';
   localStorage.setItem('visibility', visibility);
-}
+};
 
 toggleAddNew = () => {
   if (addNew.classList.contains('invisible')) {
@@ -48,7 +47,7 @@ toggleAddNew = () => {
   }
   visibility = 'add-new';
   localStorage.setItem('visibility', visibility);
-}
+};
 
 toggleContact = () => {
   if (contact.classList.contains('invisible')) {
@@ -58,11 +57,11 @@ toggleContact = () => {
   }
   visibility = 'contact';
   localStorage.setItem('visibility', visibility);
-}
+};
 
 const listLink = document.getElementById('list-btn');
 const AddNewLink = document.getElementById('add-new-btn');
 const contactLink = document.getElementById('contact-btn');
-listLink.onclick = () => {toggleList()};
-AddNewLink.onclick = () => {toggleAddNew()};
-contactLink.onclick = () => {toggleContact()};
+listLink.onclick = () => { toggleList(); };
+AddNewLink.onclick = () => { toggleAddNew(); };
+contactLink.onclick = () => { toggleContact(); };
