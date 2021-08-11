@@ -18,29 +18,45 @@
     <nav class="nav justify-content-between px-3 border-secondary border d-flex">
         <p class="mt-2">Awesome Books</p>
         <ul class="nav justify-content-end">
-            <li class="pe-3 pt-2 nav-item">List</li>
-            <li class="px-3 pt-2 nav-item border-end border-start border-secondary">Add New</li>
-            <li class="ps-3 pt-2 nav-item">Contact</li>
+            <li id="list-btn" class="pe-3 pt-2 nav-item">List</li>
+            <li id="add-new-btn" class="px-3 pt-2 nav-item border-end border-start border-secondary">Add New</li>
+            <li id="contact-btn" class="ps-3 pt-2 nav-item">Contact</li>
         </ul>
     </nav>
     <div class="d-flex justify-content-end pt-3 mx-3" id="date"></div>
-    <h1 class="text-center pt-4">All awesome books</h1>
-    <table id="table" class="border mt-5 mx-auto table table-striped">
-        <tbody id="book-shelf">
-        </tbody>
-    </table>
-    <hr class="mt-5">
-    <form class="text-center mx-auto mt-5 form">
-        <h2 class="mb-4">Add a new book</h2>
+    <main id="list" class="invisible">
+        <h1 class="text-center pt-4">All awesome books</h1>
+        <table id="table" class="border mt-5 mx-auto table table-striped">
+            <tbody id="book-shelf">
+            </tbody>
+        </table>
+        <hr class="mt-5">  
+    </main>
+    <form id="add-new" class="text-center mx-auto form invisible">
+        <h2 class="text-center pt-4 mb-4 h1">Add a new book</h2>
         <input class="col-4" id="title" type="text" required placeholder="Book Title">
         <br><br>
         <input class="col-4" id="author" type="text" required placeholder="Author's Name">
         <br><br>
-        <div class="col-sm-4 col-4 mx-auto">
-            <button class="btn border-secondary border-2 float-end" id="button" type="submit">Add</button>
+        <div class="col-sm-4 col-4 mx-auto d-flex justify-content-end">
+            <button class="btn border-secondary border-2" id="button" type="submit">Add</button>
         </div>
     </form>
-    <footer class="pt-2 fixed-bottom px-3 border-secondary border">
+    <section id="contact" class="invisible">
+        <h2 class="text-center pt-4 mb-4 h1">Contact Information</h2>
+        <p class="text-center mx-3">
+            Do you have any questions or you just want to say "Hello"?
+        </p>
+        <p class="text-center mx-3">
+            You can reach out to us!
+        </p class="text-center mx-3 mb-5">
+        <ul class="mx-5">
+            <li>Our email: mail@mail.com</li>
+            <li>Our phone number: 0043586534422 </li>
+            <li>Our address: Streetname 22, 84503 City, Country</li>
+        </ul>
+    </section>
+    <footer class="pt-2 fixed-bottom px-3 bg-light border-secondary border-top">
         <div>
             <p>Copyright Daniel & Ruben</p>
         </div>
