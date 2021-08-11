@@ -6,3 +6,7 @@ hr {
   width: 40%;
   margin: auto;
 }
+
+.invisible {
+  display: none;
+}
