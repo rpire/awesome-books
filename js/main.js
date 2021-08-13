@@ -4,11 +4,11 @@ class BookShelf {
   constructor() {
     this.books = [
       {
-        title: 'Lorem ipsum dolor',
-        author: 'Lorem ipsum',
+        title: 'Example Book',
+        author: 'Example Author',
       },
       {
-        title: 'Another book',
+        title: 'Another Example Book',
         author: 'Another Author',
       },
     ];
@@ -61,6 +61,7 @@ class BookShelf {
     if (localStorage.getItem('Books')) {
       const oldStorage = localStorage.getItem('Books');
       const newStorage = JSON.parse(oldStorage);
+      document.getElementById('book-shelf').innerHTML = '';
       this.books = newStorage;
       this.genHTML();
     } else {
@@ -72,23 +73,27 @@ class BookShelf {
     this.books.splice(num, 1);
     const bookList = JSON.stringify(this.books);
     localStorage.setItem('Books', bookList);
-    window.location.href = './index.html';
+    this.reload();
   }
 }
 
 const bookShelf = new BookShelf();
 window.onload = bookShelf.reload();
 
-const form = document.querySelector('#add-new');
+const form = document.forms[0];
 const title = document.querySelector('#title');
 const author = document.querySelector('#author');
-form.addEventListener('submit', (e) => {
+const addBtn = document.querySelector('#button');
+addBtn.addEventListener('click', () => {
   if (title.value === '') {
     errorMsg.style.color = '#f00';
     errorMsg.innerHTML = 'Title required';
-    form[0].style.borderColor = '#f00';
-    e.preventDefault();
+    document.forms[0][0].style.borderColor = '#f00';
   } else {
     bookShelf.addBook(title.value, author.value);
+    bookShelf.reload();
+    errorMsg.style.color = '#000';
+    form[0].style.borderColor = '#000';
+    form.reset();
   }
 });
