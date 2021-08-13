@@ -11,10 +11,10 @@ hr {
   display: none;
 }
 
-nav li {
+.link {
   cursor: pointer;
 }
 
-nav li:hover {
+.link:hover {
   color: gray;
 }

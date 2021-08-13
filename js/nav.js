@@ -62,8 +62,9 @@ toggleContact = () => {
 };
 
 const listLink = document.getElementById('list-btn');
-const AddNewLink = document.getElementById('add-new-btn');
+const addNewLink = document.getElementById('add-new-btn');
 const contactLink = document.getElementById('contact-btn');
 listLink.onclick = () => { toggleList(); };
-AddNewLink.onclick = () => { toggleAddNew(); };
+addNewLink.onclick = () => { toggleAddNew(); };
+invitation.onclick = () => { toggleAddNew(); };
 contactLink.onclick = () => { toggleContact(); };

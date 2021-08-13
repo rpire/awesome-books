@@ -16,29 +16,32 @@
     <nav class="nav justify-content-between px-3 border-secondary border d-flex">
         <p class="mt-2">Awesome Books</p>
         <ul class="nav justify-content-end">
-            <li id="list-btn" class="pe-3 pt-2 nav-item">List</li>
-            <li id="add-new-btn" class="px-3 pt-2 nav-item border-end border-start border-secondary">Add New</li>
-            <li id="contact-btn" class="ps-3 pt-2 nav-item">Contact</li>
+            <li id="list-btn" class="pe-3 pt-2 nav-item link">List</li>
+            <li id="add-new-btn" class="px-3 pt-2 nav-item border-end border-start border-secondary link">Add New</li>
+            <li id="contact-btn" class="ps-3 pt-2 nav-item link">Contact</li>
         </ul>
     </nav>
     <div class="d-flex justify-content-end pt-3 mx-3" id="date"></div>
-    <main id="list" class="invisible">
+    <main id="list" class="pb-5 invisible">
         <h1 class="text-center pt-4">All awesome books</h1>
+        <h2 id="empty-list" class="text-center mt-5"></h2>
+        <p id="invitation" class="text-center link"></p>
         <table id="table" class="border mt-5 mx-auto table table-striped">
             <tbody id="book-shelf">
             </tbody>
         </table>
-        <hr class="mt-5">  
+        <hr class="mt-5 mb-5">  
     </main>
     <form id="add-new" class="text-center mx-auto form invisible">
         <h2 class="text-center pt-4 mb-4 h1">Add a new book</h2>
-        <input class="col-4" id="title" type="text" required placeholder="Book Title">
+        <input class="col-4" id="title" type="text" placeholder="Book Title">
         <br><br>
-        <input class="col-4" id="author" type="text" required placeholder="Author's Name">
+        <input class="col-4" id="author" type="text" placeholder="Author's Name">
         <br><br>
         <div class="col-sm-4 col-4 mx-auto d-flex justify-content-end">
             <button class="btn border-secondary border-2" id="button" type="submit">Add</button>
         </div>
+        <small id="message"></small>
     </form>
     <section id="contact" class="invisible">
         <h2 class="text-center pt-4 mb-4 h1">Contact Information</h2>
