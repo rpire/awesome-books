@@ -1,3 +1,5 @@
+let errorMsg = document.querySelector('#message');
+
 class BookShelf {
   constructor() {
     this.books = [
@@ -34,14 +36,14 @@ class BookShelf {
         errorMsg.innerHTML = 'Last author was set as "Unknown"';
       } else {
         author[i].innerHTML = `By ${this.books[i].author}`;
-        errorMsg.innerHTML = ''
+        errorMsg.innerHTML = '';
       }
       title[i].innerHTML = `"${this.books[i].title}"`;
       button[i].setAttribute('onclick', `bookShelf.removeBook(${i})`);
     }
     if (this.books.length === 0) {
       document.querySelector('#empty-list').innerHTML = 'List empty';
-      document.querySelector('#invitation').innerHTML = 'Add a new book!'
+      document.querySelector('#invitation').innerHTML = 'Add a new book!';
     }
   }
 
@@ -60,7 +62,6 @@ class BookShelf {
       const oldStorage = localStorage.getItem('Books');
       const newStorage = JSON.parse(oldStorage);
       this.books = newStorage;
-      console.log(this.books);
       this.genHTML();
     } else {
       this.genHTML();
@@ -71,21 +72,20 @@ class BookShelf {
     this.books.splice(num, 1);
     const bookList = JSON.stringify(this.books);
     localStorage.setItem('Books', bookList);
-    window.location.href = window.location.href;
+    window.location.href = './index.html';
   }
 }
 
-let errorMsg = document.querySelector('#message');
 const bookShelf = new BookShelf();
 window.onload = bookShelf.reload();
 
 const form = document.querySelector('#add-new');
 const title = document.querySelector('#title');
 const author = document.querySelector('#author');
-const submitButton = document.querySelector('#button');
 form.addEventListener('submit', (e) => {
   if (title.value === '') {
-    errorMsg.innerHTML = 'Title required'
+    errorMsg.style.color = '#f00';
+    errorMsg.innerHTML = 'Title required';
     form[0].style.borderColor = '#f00';
     e.preventDefault();
   } else {
