@@ -55,6 +55,8 @@ class BookShelf {
     this.books.push(bookData);
     const bookList = JSON.stringify(this.books);
     localStorage.setItem('Books', bookList);
+    document.querySelector('#empty-list').innerHTML = '';
+    document.querySelector('#invitation').innerHTML = '';
   }
 
   reload() {
