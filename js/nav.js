@@ -20,23 +20,6 @@ if (localStorage.getItem('visibility')) {
   visibility = localStorage.getItem('visibility');
 }
 
-window.onload = () => {
-  setTimeDate();
-  switch (visibility) {
-    case 'list':
-      toggleList();
-      break;
-    case 'add-new':
-      toggleAddNew();
-      break;
-    case 'contact':
-      toggleContact();
-      break;
-    default:
-      toggleList();
-  }
-};
-
 const toggleList = () => {
   if (list.classList.contains('invisible')) {
     list.classList.toggle('invisible');
@@ -74,6 +57,23 @@ const toggleContact = () => {
   contactLink.style.color = 'gray';
   listLink.style.color = 'black';
   addNewLink.style.color = 'black';
+};
+
+window.onload = () => {
+  setTimeDate();
+  switch (visibility) {
+    case 'list':
+      toggleList();
+      break;
+    case 'add-new':
+      toggleAddNew();
+      break;
+    case 'contact':
+      toggleContact();
+      break;
+    default:
+      toggleList();
+  }
 };
 
 listLink.onclick = () => { toggleList(); };
