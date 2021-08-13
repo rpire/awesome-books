@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const listLink = document.getElementById('list-btn');
 const addNewLink = document.getElementById('add-new-btn');
 const invitation = document.getElementById('invitation');
@@ -36,7 +37,7 @@ window.onload = () => {
   }
 };
 
-toggleList = () => {
+const toggleList = () => {
   if (list.classList.contains('invisible')) {
     list.classList.toggle('invisible');
     addNew.classList.add('invisible');
@@ -49,7 +50,7 @@ toggleList = () => {
   contactLink.style.color = 'black';
 };
 
-toggleAddNew = () => {
+const toggleAddNew = () => {
   if (addNew.classList.contains('invisible')) {
     addNew.classList.toggle('invisible');
     list.classList.add('invisible');
@@ -62,7 +63,7 @@ toggleAddNew = () => {
   contactLink.style.color = 'black';
 };
 
-toggleContact = () => {
+const toggleContact = () => {
   if (contact.classList.contains('invisible')) {
     contact.classList.toggle('invisible');
     list.classList.add('invisible');

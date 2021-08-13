@@ -4,11 +4,11 @@ class BookShelf {
   constructor() {
     this.books = [
       {
-        title: 'Lorem ipsum dolor',
-        author: 'Lorem ipsum',
+        title: 'Example Book',
+        author: 'Example Author',
       },
       {
-        title: 'Another book',
+        title: 'Another Example Book',
         author: 'Another Author',
       },
     ];
