@@ -1,11 +1,16 @@
 /* eslint-disable no-undef */
+const listLink = document.getElementById('list-btn');
+const addNewLink = document.getElementById('add-new-btn');
+const invitation = document.getElementById('invitation');
+const contactLink = document.getElementById('contact-btn');
+
 const setTimeDate = () => {
   const { DateTime } = luxon;
   const now = DateTime.now().toLocaleString(DateTime.DATETIME_FULL);
   document.getElementById('date').innerHTML = now;
 };
 
-setTimeDate();
+window.setInterval(setTimeDate, 1000);
 
 const list = document.getElementById('list');
 const addNew = document.getElementById('add-new');
@@ -16,6 +21,7 @@ if (localStorage.getItem('visibility')) {
 }
 
 window.onload = () => {
+  setTimeDate();
   switch (visibility) {
     case 'list':
       toggleList();
@@ -39,6 +45,9 @@ toggleList = () => {
   }
   visibility = 'list';
   localStorage.setItem('visibility', visibility);
+  listLink.style.color = 'gray';
+  addNewLink.style.color = 'black';
+  contactLink.style.color = 'black';
 };
 
 toggleAddNew = () => {
@@ -49,6 +58,9 @@ toggleAddNew = () => {
   }
   visibility = 'add-new';
   localStorage.setItem('visibility', visibility);
+  addNewLink.style.color = 'gray';
+  listLink.style.color = 'black';
+  contactLink.style.color = 'black';
 };
 
 toggleContact = () => {
@@ -59,11 +71,11 @@ toggleContact = () => {
   }
   visibility = 'contact';
   localStorage.setItem('visibility', visibility);
+  contactLink.style.color = 'gray';
+  listLink.style.color = 'black';
+  addNewLink.style.color = 'black';
 };
 
-const listLink = document.getElementById('list-btn');
-const addNewLink = document.getElementById('add-new-btn');
-const contactLink = document.getElementById('contact-btn');
 listLink.onclick = () => { toggleList(); };
 addNewLink.onclick = () => { toggleAddNew(); };
 invitation.onclick = () => { toggleAddNew(); };
