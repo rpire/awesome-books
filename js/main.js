@@ -29,9 +29,19 @@ class BookShelf {
       const title = document.querySelectorAll('.book-title');
       const author = document.querySelectorAll('.book-author');
       const button = document.querySelectorAll('.book-btn');
+      if (this.books[i].author === '') {
+        author[i].innerHTML = 'By Unknown';
+        errorMsg.innerHTML = 'Last author was set as "Unknown"';
+      } else {
+        author[i].innerHTML = `By ${this.books[i].author}`;
+        errorMsg.innerHTML = ''
+      }
       title[i].innerHTML = `"${this.books[i].title}"`;
-      author[i].innerHTML = `by ${this.books[i].author}`;
       button[i].setAttribute('onclick', `bookShelf.removeBook(${i})`);
+    }
+    if (this.books.length === 0) {
+      document.querySelector('#empty-list').innerHTML = 'List empty';
+      document.querySelector('#invitation').innerHTML = 'Add a new book!'
     }
   }
 
@@ -50,6 +60,7 @@ class BookShelf {
       const oldStorage = localStorage.getItem('Books');
       const newStorage = JSON.parse(oldStorage);
       this.books = newStorage;
+      console.log(this.books);
       this.genHTML();
     } else {
       this.genHTML();
@@ -60,14 +71,24 @@ class BookShelf {
     this.books.splice(num, 1);
     const bookList = JSON.stringify(this.books);
     localStorage.setItem('Books', bookList);
-    window.location.reload();
+    window.location.href = window.location.href;
   }
 }
 
+let errorMsg = document.querySelector('#message');
 const bookShelf = new BookShelf();
 window.onload = bookShelf.reload();
 
+const form = document.querySelector('#add-new');
 const title = document.querySelector('#title');
 const author = document.querySelector('#author');
 const submitButton = document.querySelector('#button');
-submitButton.onclick = () => { bookShelf.addBook(title.value, author.value); };
+form.addEventListener('submit', (e) => {
+  if (title.value === '') {
+    errorMsg.innerHTML = 'Title required'
+    form[0].style.borderColor = '#f00';
+    e.preventDefault();
+  } else {
+    bookShelf.addBook(title.value, author.value);
+  }
+});
