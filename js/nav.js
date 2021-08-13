@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 const listLink = document.getElementById('list-btn');
 const addNewLink = document.getElementById('add-new-btn');
 const invitation = document.getElementById('invitation');
