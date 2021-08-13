@@ -1,4 +1,4 @@
-let errorMsg = document.querySelector('#message');
+const errorMsg = document.querySelector('#message');
 
 class BookShelf {
   constructor() {
