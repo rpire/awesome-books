@@ -12,7 +12,7 @@
 - JS
 
 ## Live Demo
-[Live Demo](https://mmatongo.github.io/awesome-books/)
+[Live Demo](https://rpire.github.io/awesome-books/)
 
 ## Getting Started
 
